@@ -12,10 +12,17 @@ apply plugin: 'java'
 // Apply the application plugin to add support for building an application
 apply plugin: 'application'
 
+// see: http://gradle.monochromeroad.com/docs/userguide/findbugs_plugin.html
+//apply plugin: 'findbugs'
+
+// see: http://maku77.github.io/gradle/checkstyle.html
+//apply plugin: 'checkstyle'
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
+    mavenCentral()
     jcenter()
 }
 
@@ -24,7 +31,17 @@ dependencies {
     compile 'com.google.guava:guava:21.0'
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.8'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.8.8.1'
-    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-text:2.9.0pr3'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformats-text:2.9.0.pr3'
+
+    compile 'org.apache.hive:hive:2.1.1'
+    compile 'org.apache.orc:orc:1.4.0'
+    compile 'org.apache.hadoop:hadoop-core:1.2.1'
+    compile 'org.apache.hive:hive-orc:2.1.1'
+    compile 'org.apache.hive:hive-serde:2.1.1'
+    compile 'org.apache.hive:hive-common:2.1.1'
+
+    compile 'org.apache.hive:hive-exec:2.1.1'
+    compile 'org.apache.calcite:calcite-core:1.13.0'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
@@ -33,3 +50,24 @@ dependencies {
 // Define the main class for the application
 mainClassName = 'App'
 
+
+repositories {
+    mavenCentral()
+}
+
+//checkstyle {
+//    toolVersion '6.7'
+//}
+
+//findbugs {
+//    toolVersion = "3.0.1"
+//    sourceSets = [sourceSets.main]
+//    ignoreFailures = true
+//    reportsDir = file("$project.buildDir/findbugsReports")
+//    effort = "max"
+//    reportLevel = "high"
+//    visitors = ["FindSqlInjection", "SwitchFallthrough"]
+//    omitVisitors = ["FindNonShortCircuit"]
+//    includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
+//    excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
+//}

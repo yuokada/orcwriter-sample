@@ -13,10 +13,10 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 // see: http://gradle.monochromeroad.com/docs/userguide/findbugs_plugin.html
-//apply plugin: 'findbugs'
+apply plugin: 'findbugs'
 
 // see: http://maku77.github.io/gradle/checkstyle.html
-//apply plugin: 'checkstyle'
+apply plugin: 'checkstyle'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
